@@ -1,0 +1,1 @@
+xc7a100tcsg324-1 N=8 VOQ  depth 4  period 4.00 ns  WNS -11.231 ns  Fmax 66 MHz  LUT 5597  FF 1016  LUTRAM 3456

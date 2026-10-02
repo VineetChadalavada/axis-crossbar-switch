@@ -1,0 +1,1 @@
+xc7a100tcsg324-1 N=4 FIFO depth 4  period 4.00 ns  WNS -6.957 ns  Fmax 91 MHz  LUT 1132  FF 204  LUTRAM 216

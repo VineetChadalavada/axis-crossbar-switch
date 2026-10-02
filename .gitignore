@@ -1,0 +1,17 @@
+# simulation / formal / synthesis output
+build/
+obj_dir/
+*.vcd
+*.fst
+*.wdb
+*.jou
+*.log
+xsim.dir/
+.Xil/
+formal/xb_switch_*/
+
+
+
+# editor noise
+.vscode/
+*.swp

@@ -1,0 +1,85 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Thu Oct  1 21:41:28 2026
+| Host         : Vineet running 64-bit major release  (build 9200)
+| Command      : report_timing -file E:/hw-projects/axis-crossbar-switch/syn/reports/vivado_n4_voq1_d4/critical_path.rpt -max_paths 1
+| Design       : xb_switch
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -6.630ns  (required time - arrival time)
+  Source:                 out_busy_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            g_in[2].g_voq.g_q[2].u_q/rp_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (clk rise@4.000ns - clk rise@0.000ns)
+  Data Path Delay:        10.577ns  (logic 2.079ns (19.657%)  route 8.498ns (80.343%))
+  Logic Levels:           12  (LUT2=1 LUT4=2 LUT5=2 LUT6=7)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 4.924 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=1035, unset)         0.973     0.973    clk
+    SLICE_X27Y34         FDCE                                         r  out_busy_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y34         FDCE (Prop_fdce_C_Q)         0.419     1.392 r  out_busy_reg[3]/Q
+                         net (fo=48, routed)          0.884     2.276    g_in[3].g_voq.g_q[1].u_q/m_tid[7]_INST_0_i_162[3]
+    SLICE_X27Y35         LUT6 (Prop_lut6_I1_O)        0.296     2.572 f  g_in[3].g_voq.g_q[1].u_q/m_tid[7]_INST_0_i_117/O
+                         net (fo=8, routed)           0.849     3.421    g_in[1].g_voq.g_q[0].u_q/credit[0][3][7]_i_17
+    SLICE_X27Y36         LUT4 (Prop_lut4_I0_O)        0.124     3.545 f  g_in[1].g_voq.g_q[0].u_q/m_tid[7]_INST_0_i_52/O
+                         net (fo=3, routed)           0.615     4.160    g_in[1].g_voq.g_q[0].u_q/out_busy_reg[0]
+    SLICE_X27Y36         LUT6 (Prop_lut6_I1_O)        0.124     4.284 f  g_in[1].g_voq.g_q[0].u_q/credit[0][3][7]_i_15/O
+                         net (fo=1, routed)           0.808     5.092    g_in[1].g_voq.g_q[0].u_q/credit[0][3][7]_i_15_n_0
+    SLICE_X27Y37         LUT6 (Prop_lut6_I0_O)        0.124     5.216 r  g_in[1].g_voq.g_q[0].u_q/credit[0][3][7]_i_12/O
+                         net (fo=80, routed)          0.675     5.891    g_in[1].g_voq.g_q[0].u_q/cfg_dwrr_0_sn_1
+    SLICE_X33Y37         LUT5 (Prop_lut5_I3_O)        0.124     6.015 f  g_in[1].g_voq.g_q[0].u_q/credit[0][2][7]_i_3/O
+                         net (fo=3, routed)           0.824     6.840    g_in[1].g_voq.g_q[0].u_q/credit_eff[0][2][5]
+    SLICE_X32Y35         LUT6 (Prop_lut6_I1_O)        0.124     6.964 f  g_in[1].g_voq.g_q[0].u_q/m_tid[7]_INST_0_i_17/O
+                         net (fo=4, routed)           0.784     7.747    g_in[1].g_voq.g_q[0].u_q/(null)[0].req38_in[2]
+    SLICE_X27Y33         LUT6 (Prop_lut6_I4_O)        0.124     7.871 f  g_in[1].g_voq.g_q[0].u_q/m_tid[7]_INST_0_i_4/O
+                         net (fo=4, routed)           0.806     8.678    g_in[1].g_voq.g_q[0].u_q/(null)[0].req8_in[0]
+    SLICE_X23Y34         LUT6 (Prop_lut6_I0_O)        0.124     8.802 r  g_in[1].g_voq.g_q[0].u_q/m_tid[5]_INST_0_i_1/O
+                         net (fo=7, routed)           0.439     9.241    g_in[1].g_voq.g_q[0].u_q/m_tid[5]_INST_0_i_1_n_0
+    SLICE_X23Y34         LUT4 (Prop_lut4_I0_O)        0.124     9.365 r  g_in[1].g_voq.g_q[0].u_q/m_tid[5]_INST_0/O
+                         net (fo=39, routed)          0.742    10.107    g_in[1].g_voq.g_q[0].u_q/out_busy_reg[2]
+    SLICE_X29Y34         LUT6 (Prop_lut6_I3_O)        0.124    10.231 r  g_in[1].g_voq.g_q[0].u_q/m_tvalid[2]_INST_0_i_1/O
+                         net (fo=7, routed)           0.481    10.712    g_in[1].g_voq.g_q[0].u_q/p_0_in253_in
+    SLICE_X29Y34         LUT5 (Prop_lut5_I2_O)        0.124    10.836 r  g_in[1].g_voq.g_q[0].u_q/rp[2]_i_2__2/O
+                         net (fo=3, routed)           0.590    11.426    g_in[1].g_voq.g_q[0].u_q/q_pop[2][0]
+    SLICE_X28Y32         LUT2 (Prop_lut2_I0_O)        0.124    11.550 r  g_in[1].g_voq.g_q[0].u_q/rp[0]_i_1__9/O
+                         net (fo=1, routed)           0.000    11.550    g_in[2].g_voq.g_q[2].u_q/rp_reg[0]_2
+    SLICE_X28Y32         FDCE                                         r  g_in[2].g_voq.g_q[2].u_q/rp_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  clk (IN)
+                         net (fo=1035, unset)         0.924     4.924    g_in[2].g_voq.g_q[2].u_q/clk
+    SLICE_X28Y32         FDCE                                         r  g_in[2].g_voq.g_q[2].u_q/rp_reg[0]/C
+                         clock pessimism              0.000     4.924    
+                         clock uncertainty           -0.035     4.889    
+    SLICE_X28Y32         FDCE (Setup_fdce_C_D)        0.031     4.920    g_in[2].g_voq.g_q[2].u_q/rp_reg[0]
+  -------------------------------------------------------------------
+                         required time                          4.920    
+                         arrival time                         -11.550    
+  -------------------------------------------------------------------
+                         slack                                 -6.630    
+
+
+
+

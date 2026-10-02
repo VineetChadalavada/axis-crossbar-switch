@@ -1,0 +1,32 @@
+# SymbiYosys job for xb_switch (3x3, VOQ build and single-FIFO build)
+#
+#   prove_voq / prove_fifo   unbounded proof (k-induction) of F1-F5
+#   cover                    reachability traces
+
+[tasks]
+prove_voq
+prove_fifo
+cover
+
+[options]
+prove_voq:  mode prove
+prove_voq:  depth 10
+prove_fifo: mode prove
+prove_fifo: depth 10
+cover:      mode cover
+cover:      depth 30
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal -sv xb_fifo.sv xb_props.sv xb_switch.sv xb_formal_top.sv
+prove_fifo: chparam -set VOQ 0 xb_formal_top
+prep -top xb_formal_top
+async2sync
+
+[files]
+../rtl/xb_fifo.sv
+../rtl/xb_switch.sv
+../tb/xb_props.sv
+xb_formal_top.sv
