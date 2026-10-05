@@ -30,15 +30,9 @@ formally rather than just simulate them.
 
 ## Design
 
-```
-  in 0   --> [VOQ 0->0][VOQ 0->1] ... [VOQ 0->N-1] --+
-  in 1   --> [VOQ 1->0] ...                          +--> N x N crossbar --> out j
-   ...                                               |    (out j picks one of
-  in N-1 --> ...                                   --+     VOQ 0->j .. VOQ N-1->j)
-                         | requests       ^ match
-                         v                |
-              [ output arbiters: RR or DWRR ] -> [ input accept arbiters: RR ]
-```
+<p align="center">
+  <img src="docs/img/architecture.svg" alt="Crossbar architecture: each input demultiplexes into one virtual output queue per output; per-output muxes select a VOQ; a four-step allocator (request, grant, accept, lock) drives the mux selects" width="100%">
+</p>
 
 **Ports.** Standard AXI4-Stream: `TVALID`/`TREADY`, `TDATA`, `TLAST` marks
 the end of a packet, and `TDEST` on the first beat picks the output. On the
@@ -224,6 +218,7 @@ tb/       tb_xb.sv  xb_props.sv
 formal/   xb_switch.sby  xb_formal_top.sv  results/
 syn/      vivado_impl.tcl  reports/
 scripts/  lint, sim, regress, formal, mutants
+docs/     img/  architecture diagram (SVG)
 ```
 
 ## Limitations
